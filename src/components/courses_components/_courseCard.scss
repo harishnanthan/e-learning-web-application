@@ -1,0 +1,43 @@
+@import "../../assets/styles/variables";
+
+.courses-card {
+    // background-color: $--color-gray;
+    border: 1px solid $--color-gray;
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 18rem;
+    position: relative;
+    height: 35vh;
+    h1 {
+        margin: 0.4rem 0;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    p {
+        font-size: 0.9rem;
+        margin: 0.2rem 0;
+        color: $--color-gray;
+    }
+    span {
+        display: block;
+    }
+    .rating {
+        display: flex;
+        color: #ffa371;
+        flex-direction: row;
+        align-items: center;
+    }
+    .price {
+        // color: $--color-black;
+        font-weight: 600;
+    }
+    .note {
+        // position: absolute;
+        margin: 0.5rem 0;
+        text-align: center;
+        width: 50%;
+        background-color: #fffa86;
+        color: #ffa371;
+        font-weight: 600;
+    }
+}

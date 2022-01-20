@@ -1,0 +1,21 @@
+@import "./variables";
+
+.footer {
+    // background-color: $--color-black;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    color: $--color-white;
+    align-items: center;
+    justify-content: space-between;
+    .footer-right {
+        color: rgb(197, 197, 197);
+    }
+    .footer-left {
+        padding: 10px 12px;
+        font-weight: bold;
+        font-size: 1.4rem;
+        // color: $--color-accent;  
+        cursor: pointer;
+    }
+}

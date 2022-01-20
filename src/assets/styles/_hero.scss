@@ -1,0 +1,46 @@
+@import "variables";
+.hero {
+    max-width: 85vw;
+    margin: auto;
+    // background-color: red;
+    display: flex;
+    // flex-basis: 100px;
+
+    .hero-left-side {
+        width: 50%;
+        // background-color: yellow;
+        height: 85vh;
+        display: flex;
+        align-items: center;
+        p {
+            font-size: 1.1rem;
+            color: $--color-gray;
+        }
+        h1 {
+            font-size: 3.3rem;
+            font-weight: 800;
+        }
+        .join-free {
+            margin-top: 30px;
+            width: 50%;
+            button {
+                padding: 10px 18px;
+                background-color: $--color-accent;
+                color: $--color-white;
+                border: 3px solid $--color-accent;
+                font-weight: 500;
+                transition: all ease-in-out 200ms;
+            }
+            button:hover {
+                background-color: $--color-white;
+                color: $--color-accent;
+            }
+        }
+    }
+    .hero-right-side {
+        width: 40vw;
+        // background-color: red;
+        display: grid;
+        place-content: center;
+    }
+}
