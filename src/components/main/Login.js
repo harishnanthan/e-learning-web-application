@@ -3,6 +3,7 @@ import "../../assets/styles/_login.scss";
 import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
 import { Link } from "react-router-dom";
+// import { useState } from "react";
 
 
 const Login = () => {
@@ -32,6 +33,9 @@ const Login = () => {
                                 <button type="submit">Login</button>
                             </div>
                         </form>
+                        <div className="forgot-password">
+                            {/* <a onClick={() => setShow(true)}>Forgot Password?</a> */}
+                        </div>
                         <div className="account-holder">
                             Don't have an account?
                             <Link to="/joinforfree" style={{ textDecoration: 'none' }}>

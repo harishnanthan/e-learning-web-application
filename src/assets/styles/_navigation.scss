@@ -1,14 +1,10 @@
 @import "_variables";
 
 nav {
-    // width: 100vw;    
-    // margin: auto;
-    // background-color: red;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
-    box-shadow: 0px 5px 20px 3px #e6e6e6;
 
     .logo {
         padding: 10px 12px;
@@ -26,7 +22,7 @@ nav {
             height: 100%;
             border: 1px solid $--color-black;
             outline: none;
-            padding-left: 30px ;
+            padding-left: 30px;
             border-radius: 40px;
         }
         input:focus {
@@ -48,12 +44,11 @@ nav {
                 font-size: 1rem;
                 font-weight: 300;
                 cursor: pointer;
-                transition: all ease-in-out 200ms;
+                transition: all 100ms;
                 color: $--color-black;
             }
             .link:hover {
                 color: $--color-accent;
-                // border-bottom: 2px solid $--color-accent;
             }
         }
     }
@@ -66,7 +61,7 @@ nav {
             color: $--color-accent;
             border: 3px solid $--color-accent;
             font-weight: 500;
-            transition: all ease-in-out 200ms;
+            transition-duration: 1000ms;
         }
         button:hover {
             background-color: $--color-accent;

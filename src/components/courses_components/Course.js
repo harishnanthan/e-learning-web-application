@@ -1,13 +1,36 @@
-import CourseItem from "./CourseItem";
-import './_coursItems.scss';
+import './_courseCard.scss'
+import StarIcon from "@material-ui/icons/Star"
+// import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Course = (props) => {
-    return <div className="cousrse-items">
-        <CourseItem title={props.items[0].title} author={props.items[0].author} rating={props.items[0].rating} price={props.items[0].price} note={props.items[0].note} />
-        <CourseItem title={props.items[1].title} author={props.items[1].author} rating={props.items[1].rating} price={props.items[1].price} note={props.items[1].note} />
-        <CourseItem title={props.items[2].title} author={props.items[2].author} rating={props.items[2].rating} price={props.items[2].price} note={props.items[2].note} />
-        <CourseItem title={props.items[3].title} author={props.items[3].author} rating={props.items[3].rating} price={props.items[3].price} note={props.items[3].note} />
-    </div>
+export default function Course(props) {
+
+    // const [data, setData] = React.useState({ props });
+    // setData(prevstate => {
+    //     return {
+    //         ...prevstate,
+    //         props
+    //     }
+    // })
+
+    // let navigate = useNavigate();
+    // const changePage = (props) => {
+    //     let path = '/coursepage/singleCourse'
+    //     navigate(path, { a: '1' })
+    // }
+    // let match = useRouteMatch();
+    // let id = props.id
+    return (
+        <div className="courses-card">
+            {/* <img src={look}></img> */}
+            <img className='course-timeline' src={`../../assets/svg/${props.image}`} alt='course-timeline' />
+            <h1>{props.title}</h1>
+            <p>{props.author}</p>
+            <span className='rating'> {props.rating} <StarIcon /> </span>
+            <span className='price'>${props.price}</span>
+            <span className='note'>{props.note}</span>
+            <Link to={{ pathname: '/coursepage/singleCourse' }} > go to enroll</Link>
+        </div >
+    )
 }
-
-export default Course; 
