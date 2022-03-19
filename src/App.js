@@ -7,14 +7,22 @@ import Login from "./components/main/Login";
 import './assets/styles/_global.scss';
 import Page404 from "./components/main/Page404";
 import SingleCourse from "./components/SingleCourse";
+import { AuthInterceptor } from './helpers/jwt.interceptor';
+import ForgetPassword from "./components/main/ForgetPassword";
+import ResetPassword from "./components/main/ResetPassword";
+import Verification from "./components/main/Verification";
 
 function App() {
+    AuthInterceptor()
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/' exact element={<Homepage />} />
-                <Route path='/joinforfree' exact element={<JoinForFree />} />
+                <Route path='/join-for-free' exact element={<JoinForFree />} />
                 <Route path='/login' exact element={<Login />} />
+                <Route path='/forget-password' exact element={<ForgetPassword />} />
+                <Route path='/reset-password/ur/:verificationKey' exact element={<ResetPassword />} />
+                <Route path='/is-legit/:verificationType/:verificationKey' exact element={<Verification />} />
                 <Route path='/teachMeOn' exact element={<TeachMeOn />} />
                 <Route path='/coursepage' exact element={<CoursePage />} />
                 <Route path='*' exact element={<Page404 />} />

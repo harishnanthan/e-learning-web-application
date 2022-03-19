@@ -2,32 +2,41 @@ import Navigation from "../home_page/Navigation";
 import "../../assets/styles/_login.scss";
 import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useHistory, useParams } from "react-router-dom";
 import React, { useState } from 'react';
 import login from '../../api/login.api';
+import resetPassword from "../../api/reset-password.api";
 import queryString from 'query-string';
 
-const Login = () => {
+const ResetPassword = (props) => {
+    const { verificationKey } = useParams()
+
+    console.log(verificationKey)
     const navigate = useNavigate();
     const query = queryString.parse(window.location.search);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [response, setResponse] = useState(null);
-    const [username, setUsername] = useState(null);
+    const [verificationValue, setVerificationValue] = useState(null);
     const [password, setPassword] = useState(null);
+
+    // console.log(this.props)
 
     const handleSubmit = async e => {
         e.preventDefault();
         setIsLoading(true)
-        await login({
-            username,
-            password
+        await resetPassword({
+            verificationModule: "forgetPassword",
+            verificationKey,
+            verificationValue,
+            password,
         }).then(async (res) => {
             if(res.status === 200) {
                 console.log(res)
                 startNavigation()
             } else {
+                console.log(res.message)
                 handleError(res.message)
             }
         }).catch((err) => {
@@ -46,9 +55,9 @@ const Login = () => {
 
     const startNavigation = () => {
         if('back-to' in query) {
-            navigate(query['back-to'])
+            navigate(`/login${window.location.search}`)
         } else {
-            navigate('/')
+            navigate('/login')
         }
     }
 
@@ -58,7 +67,7 @@ const Login = () => {
             <div className="login-center">
                 <div className="login">
                     <div className="heading">
-                        Log In to Your Online Course Account!
+                        Reset Your Online Course Account!
                     </div   >
                     <div className="login-form">
                         <form onSubmit={handleSubmit}>
@@ -66,21 +75,21 @@ const Login = () => {
                                 <span>
                                     <PersonIcon />
                                 </span>
-                                <input type="text" placeholder="Full Name"  onChange={e => setUsername(e.target.value)}></input>
+                                <input type="text" placeholder="OTP"  onChange={e => setVerificationValue(e.target.value)}></input>
                             </div>
                             <div className="password">
                                 <span >
                                     <LockIcon />
                                 </span>
-                                <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
+                                <input type="password" placeholder="New Password" onChange={e => setPassword(e.target.value)}></input>
                             </div>
                             <div className="Login-button">
-                                <button type="submit">Login</button>
+                                <button type="submit">Request Verification</button>
                             </div>
                         </form>
                         <div className="account-holder">
                             Don't have an account?
-                            <Link to={`/join-for-free${window.location.search}`} style={{ textDecoration: 'none' }}>
+                            <Link to="/join-for-free" style={{ textDecoration: 'none' }}>
                                 <p> Sing up </p>
                             </Link>
                         </div>
@@ -91,4 +100,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default ResetPassword;

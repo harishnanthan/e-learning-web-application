@@ -22,10 +22,10 @@ function Navigation() {
                 </ul>
             </div>
             <div className="action-buttons">
-                <Link to="/joinforfree">
+                <Link to="/join-for-free">
                     <JoinForFree />
                 </Link>
-                <Link to="login">
+                <Link to="/login">
                     <button>Log In</button>
                 </Link>
             </div>
