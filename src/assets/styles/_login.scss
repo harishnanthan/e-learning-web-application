@@ -67,6 +67,13 @@
                         opacity: 0.8;
                     }
                 }
+                .forget-password {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 10px;
+                }
             }
         }
     }

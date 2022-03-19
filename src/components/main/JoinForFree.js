@@ -3,10 +3,8 @@ import PersonIcon from "@material-ui/icons/Person";
 import EmailIcon from "@material-ui/icons/Email";
 import LockIcon from "@material-ui/icons/Lock";
 import Otp from "../model_components/Otp.js";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from 'react';
 import "../../assets/styles/_joinforfree.scss";
 import check from "../../api/check.api.js";
 import register from "../../api/register.api.js";
@@ -29,6 +27,7 @@ function JoinForFree() {
 
     const handleSubmit = async e => {
         e.preventDefault();
+        console.log(e)
         setIsLoading(true)
         await register({
             name,
@@ -125,9 +124,9 @@ function JoinForFree() {
                                 <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}></input>
                             </div>
                             <div className="signin-button">
-                                <Link to=''>
-                                    <button type="submit" onClick={() => setShow(true)}> Sign Up</button>
-                                </Link>
+                                {/* <Link to=''> */}
+                                    <button type="submit"> Sign Up</button>
+                                {/* </Link> */}
                                 <Otp show={show} onClose={() => setShow(false)}></Otp>
                             </div>
                         </form>

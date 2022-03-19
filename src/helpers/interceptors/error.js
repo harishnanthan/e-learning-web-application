@@ -1,4 +1,4 @@
-import history from "./history";
+import history from "../history";
 
 const errorInterceptor = (axiosInstance) => {
     axiosInstance.interceptors.response.use((response) => {
@@ -16,12 +16,12 @@ const errorInterceptor = (axiosInstance) => {
             //redirect to Login
         } else {
             //dispatch your error in a more user friendly manner
-            if (DEBUG) {
+            // if (DEBUG) {
             //easier debugging
-                console.group("Error");
-                console.log(error);
-                console.groupEnd();
-            }
+            //     console.group("Error");
+            //     console.log(error);
+            //     console.groupEnd();
+            // }
         }
         return error
     });

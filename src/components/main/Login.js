@@ -6,8 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import login from '../../api/login.api';
 import queryString from 'query-string';
+import Razorpay from "../payment_components/Razorpay";
 
 const Login = () => {
+    const [show, setShow] = useState(false);
     const navigate = useNavigate();
     const query = queryString.parse(window.location.search);
     const [isLoading, setIsLoading] = useState(false);
@@ -78,6 +80,9 @@ const Login = () => {
                                 <button type="submit">Login</button>
                             </div>
                         </form>
+                        <div className="forgot-password">
+                            <a onClick={() => navigate('/forget-password')}>Forgot Password?</a>
+                        </div>
                         <div className="account-holder">
                             Don't have an account?
                             <Link to={`/join-for-free${window.location.search}`} style={{ textDecoration: 'none' }}>
