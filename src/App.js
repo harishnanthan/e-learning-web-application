@@ -6,6 +6,7 @@ import TeachMeOn from "./components/main/TeachMeOn";
 import Login from "./components/main/Login";
 import './assets/styles/_global.scss';
 import Page404 from "./components/main/Page404";
+import SingleCourse from "./components/SingleCourse";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path='/teachMeOn' exact element={<TeachMeOn />} />
                 <Route path='/coursepage' exact element={<CoursePage />} />
                 <Route path='*' exact element={<Page404 />} />
+                <Route path='/coursepage/singleCourse' exact element={<SingleCourse />}/>
             </Routes>
         </BrowserRouter>
     );

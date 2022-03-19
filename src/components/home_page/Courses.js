@@ -1,47 +1,15 @@
 import "../../assets/styles/_courses.scss";
 import Course from "../courses_components/Course";
-// import CourseItem from "../courses_components/CourseItem";
-import { useState } from "react";
+import SingleCourse from "../../data/courses"
 
-function Courses() {
+export default function Courses() {
+    const courseSingle = SingleCourse;
+    const coursearray = courseSingle.map(n => {
+        return <Course key={n.id}
+            {...n} />
+    })
+    console.log(coursearray)
 
-    const courseSingle = [
-        {
-            id: 'c1',
-            image: "../../assets/svg/instaractor-boy.png",
-            title: 'The Complete 2020 Web Development Bootcamp',
-            author: 'Harish nanthan',
-            rating: 4.5,
-            price: 450,
-            note: "Bestseller"
-        },
-        {
-            id: 'c2',
-            title: 'The Complete 2020 Web Development Bootcamp',
-            author: 'Harish nanthan',
-            rating: 4.5,
-            price: 450,
-            note: ""
-        },
-        {
-            id: 'c3',
-            title: 'The Complete 2020 Web Development Bootcamp',
-            author: 'Harish nanthan',
-            rating: 4.5,
-            price: 450,
-            note: ""
-        },
-        {
-            id: 'c4',
-            title: 'The Complete 2020 Web Development Bootcamp',
-            author: 'Harish nanthan',
-            rating: 4.5,
-            price: 450,
-            note: "Bestseller"
-        },
-    ];
-
-    const [show, setShow] = useState('start');
 
     return (
         <div className="courses-page">
@@ -53,7 +21,7 @@ function Courses() {
                 <div className="courses">
                     <div className="courses-names">
                         <ul>
-                            <li onClick={show}>Python</li>
+                            <li>Python</li>
                             <li>Data Science</li>
                             <li>Marketing</li>
                             <li>Web development</li>
@@ -61,7 +29,7 @@ function Courses() {
                         </ul>
                     </div>
                     <div className="course-items">
-                        <Course items={courseSingle} />
+                        {coursearray}
                     </div>
                 </div>
             </section>
@@ -69,11 +37,3 @@ function Courses() {
     )
 }
 
-export default Courses;
-
-export const Card = () => {
-    return (
-        <div>
-        </div>
-    );
-}

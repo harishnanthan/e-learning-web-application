@@ -1,0 +1,30 @@
+.singleItem {
+    padding: 1em;
+    width: 100%;
+    background-color: #eee;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.all{
+    margin: 5em 0;
+}
+
+.course_content_all {
+    margin-top: 2em;
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    .course_heading {
+        margin: 1em 0;
+        font-size: 1.3rem;
+    }
+}

@@ -1,0 +1,17 @@
+@import "./variables";
+
+.courses-page {
+    // width: 100vw;
+    // height: 100vh;
+    background-color: rgb(243, 243, 243);
+    flex-direction: column;
+    // background-color: red;
+    .every-course {
+        // background-color: $--color-gray;
+        width: 90vw;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        justify-content: center;
+    }
+}

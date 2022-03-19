@@ -1,0 +1,54 @@
+@import "../../assets/styles/variables";
+
+.course_header {
+    // margin: auto;
+    background-color: $--color-black-gray;
+    .course_header_content {
+        width: 80vw;
+        margin: auto;
+        color: $--color-white;
+        padding: 2em;
+        .course_path {
+            color: $--color-accent;
+            font-weight: 600;
+            margin: 0.5em 0;
+        }
+        .course_title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0.5em 0;
+        }
+        .course_description {
+            width: 50%;
+            margin: 0.5em 0;
+        }
+
+        .course_information {
+            margin: 1em 0;
+            .best_seller {
+                margin: 1em 0;
+                display: inline;
+                padding: 5px;
+                background-color: yellow;
+                color: orange;
+                font-weight: 600;
+            }
+            .rating {
+                color: yellow;
+                font-weight: 600;
+                margin-inline: 1em;
+            }
+            .totalStudent {
+                font-weight: 300;
+            }
+        }
+    }
+    .course_creator {
+        .creator_name {
+            color: $--color-accent;
+            text-decoration: underline;
+            margin-inline: 10px;
+            cursor: pointer;
+        }
+    }
+}
