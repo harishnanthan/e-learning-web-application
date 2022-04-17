@@ -11,34 +11,17 @@ import history from "history/browser";
 export default function SearchPage(props) {
 
     const [render, setRender] = React.useState(window.location.href);
+    const [totalPages, setTotalPages] = React.useState(0);
+    const [totalCourses, setTotalCourses] = React.useState(0);
     const [coursearray, setcoursearray] = React.useState([]);
-
-    // console.log(history.location.search)
-
-    // console.log(props)
-    // // const isFocused = useIsFocused()
-
-    // React.useEffect(() => {
-    //     //Update the state you want to be updated
-    //     console.log("Updating page")
-    // } , [history.location.search])
-    // setRender(window.location.href)
-
-    const courseSingle = SingleCourse;
-    // setcoursearray(courseSingle.map(n => {
-    //     return <Course key={n.id}
-    //         {...n} />
-    // }));
 
     var url_string = window.location.href
     var url = new URL(url_string);
     var query = url.searchParams.get("query");
 
     let page = 1;
-
-    const updatePage = () => {
-        console.log("Updating page");
-    }
+    // let totalPages = 0;
+    // let totalCourses = 1;
 
     React.useEffect(async () => {
         console.log(window.location.href)
@@ -47,14 +30,17 @@ export default function SearchPage(props) {
         }
     
         await getCourses(data)
-            .then(courses => {
-                console.log(courses)
-                if(courses.status === 200)
-                    setcoursearray(courses.rows.map(course => {
+            .then(response => {
+                console.log(response)
+                if(response.status === 200) {
+                    setTotalCourses(response.ack.totalCount);
+                    setTotalPages(totalCourses/5);
+                    setcoursearray(response.rows.map(course => {
                         return <Course key={course.courseId}
                             {...course} />
                     }));
-                else if(courses.status === 404)
+                }
+                else if(response.status === 404)
                     setcoursearray([]);
             }).catch((err) => {
                 console.log(err)
@@ -77,6 +63,7 @@ export default function SearchPage(props) {
             <div className="every-course">
                 {coursearray}
             </div>
+            {totalPages}
         </div>
     )
 }
