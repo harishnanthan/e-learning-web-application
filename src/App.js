@@ -18,6 +18,7 @@ import Verification from "./components/main/Verification";
 
 import toast, { Toaster } from 'react-hot-toast';
 import SearchPage from "./components/search_page/SearchPage";
+import PreviewPage from "./components/preview_components/PreviewPage";
 
 function App() {
     AuthInterceptor()
@@ -47,6 +48,7 @@ function App() {
                     <Route path='/search' element={<SearchPage props={{location: query}}/>} />
                     <Route path='*' exact element={<Page404 />} />
                     <Route path='/course/:courseId' exact element={<SingleCourse />}/>
+                    <Route path='/learn/:courseId' exact element={<PreviewPage />}/>
                 </Routes>
             </BrowserRouter>
 

@@ -1,0 +1,46 @@
+@import "../../assets/styles/variables";
+
+.preview_page {
+    header {
+        width: 100vw;
+        background-color: $--color-accent;
+        padding: 10px 20px;
+        color: $--color-white;
+    }
+
+    .preview_preview {
+        display: flex;
+    }
+
+    Player {
+        width: 70vw;
+        height: 70vh;
+        // background-color: black;
+    }
+
+    vm-player {
+        width: 70%;
+    }
+
+    .course_module {
+        // width: 100%;
+
+        .course_title {
+            display: flex;
+            background-color: $--color-white;
+            padding: 10px 10px;
+            display: flex;
+        }
+
+        ul {
+            margin: 0;
+            list-style-type: none;
+
+            li {
+                background-color: $--color-gray;
+                padding: 10px 7px;
+                margin: 2px;
+            }
+        }
+    }
+}
